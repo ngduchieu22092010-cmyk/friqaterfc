@@ -1,0 +1,2120 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Friqater FC</title>
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#dff6ff;
+    color:#06345b;
+    overflow-x:hidden;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+
+    background:rgba(255,255,255,.94);
+
+    backdrop-filter:blur(15px);
+
+    border-bottom:2px solid #25a9ff;
+
+    box-shadow:
+        0 4px 20px rgba(0,100,200,.15);
+}
+
+nav{
+    max-width:1250px;
+    height:78px;
+
+    margin:auto;
+    padding:0 20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo-box{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo{
+    width:56px;
+    height:56px;
+
+    border-radius:50%;
+
+    object-fit:contain;
+
+    background:white;
+
+    border:2px solid #008cff;
+
+    box-shadow:
+        0 0 12px rgba(0,140,255,.45),
+        0 0 25px rgba(0,157,255,.2);
+}
+
+.logo-name{
+    font-size:21px;
+    font-weight:900;
+    color:#06345b;
+}
+
+.logo-name span{
+    color:#008cff;
+}
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:28px;
+}
+
+nav a{
+    color:#06345b;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#008cff;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:130px 20px 70px;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(0,170,255,.35),
+            transparent 45%
+        ),
+
+        linear-gradient(
+            135deg,
+            #e5f9ff,
+            #bcecff,
+            #f2fcff
+        );
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+
+/* =====================================================
+   LOGO LỚN
+===================================================== */
+
+.big-logo{
+    width:190px;
+    height:190px;
+
+    margin:0 auto 28px;
+
+    border-radius:50%;
+
+    background:white;
+
+    border:5px solid #008cff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 0 25px rgba(0,170,255,.55),
+        0 0 70px rgba(0,145,255,.35);
+}
+
+.big-logo img{
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+}
+
+
+/* =====================================================
+   HERO TEXT
+===================================================== */
+
+.hero h1{
+    font-size:72px;
+
+    color:#008cff;
+
+    font-weight:900;
+
+    text-shadow:
+        0 0 15px rgba(0,140,255,.35),
+        0 0 35px rgba(0,157,255,.2);
+}
+
+.hero h2{
+    margin:10px 0 20px;
+
+    font-size:27px;
+
+    color:#06345b;
+}
+
+.hero p{
+    color:#315e7e;
+
+    font-size:18px;
+
+    line-height:1.8;
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.buttons{
+    margin-top:30px;
+}
+
+.btn{
+    display:inline-block;
+
+    padding:14px 28px;
+
+    margin:5px;
+
+    border-radius:30px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.btn-blue{
+    background:
+        linear-gradient(
+            90deg,
+            #00b7ff,
+            #006eff
+        );
+
+    color:white;
+
+    box-shadow:
+        0 6px 20px rgba(0,140,255,.3);
+}
+
+.btn-blue:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 0 30px rgba(0,150,255,.6);
+}
+
+.btn-outline{
+    border:2px solid #008cff;
+
+    color:#0068b8;
+
+    background:rgba(255,255,255,.5);
+}
+
+.btn-outline:hover{
+    background:#008cff;
+    color:white;
+}
+
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+section{
+    max-width:1250px;
+
+    margin:auto;
+
+    padding:100px 20px;
+}
+
+.title{
+    text-align:center;
+
+    margin-bottom:50px;
+}
+
+.title h2{
+    color:#008cff;
+
+    font-size:40px;
+
+    margin-bottom:10px;
+
+    text-shadow:
+        0 0 15px rgba(0,170,255,.25);
+}
+
+.title p{
+    color:#597890;
+
+    font-size:16px;
+}
+
+
+/* =====================================================
+   GIỚI THIỆU
+===================================================== */
+
+.about{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:45px;
+
+    align-items:center;
+}
+
+.about-image{
+    height:360px;
+
+    border-radius:25px;
+
+    background:
+
+        linear-gradient(
+            rgba(0,140,255,.05),
+            rgba(0,70,150,.1)
+        ),
+
+        url(
+            "https://cdn.phototourl.com/free/2026-08-24-31a35166-f081-4301-b3fe-3cf196f07b99.jpg"
+        );
+
+    background-size:cover;
+
+    background-position:center;
+
+    box-shadow:
+        0 10px 35px rgba(0,120,220,.2);
+}
+
+.about-text h3{
+    font-size:30px;
+
+    margin-bottom:20px;
+
+    color:#06345b;
+}
+
+.about-text p{
+    color:#315d7d;
+
+    line-height:1.8;
+
+    margin-bottom:15px;
+}
+
+
+/* =====================================================
+   PLAYERS
+===================================================== */
+
+.players{
+    display:grid;
+
+    grid-template-columns:
+        repeat(5,1fr);
+
+    gap:20px;
+}
+
+.player{
+    background:
+        rgba(255,255,255,.95);
+
+    border:
+        1px solid rgba(0,140,255,.25);
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    transition:.3s;
+
+    box-shadow:
+        0 8px 25px rgba(0,120,220,.12);
+
+    cursor:pointer;
+}
+
+.player:hover{
+    transform:translateY(-8px);
+
+    border-color:#00aaff;
+
+    box-shadow:
+        0 12px 30px rgba(0,170,255,.3);
+}
+
+.player-img{
+    width:100%;
+    height:220px;
+
+    object-fit:cover;
+
+    display:block;
+
+    background:#bdeaff;
+}
+
+.player-info{
+    padding:18px;
+
+    text-align:center;
+}
+
+.number{
+    color:#008cff;
+
+    font-size:17px;
+
+    font-weight:bold;
+}
+
+.player h3{
+    color:#06345b;
+
+    margin:8px 0;
+
+    font-size:19px;
+}
+
+.position{
+    color:#597890;
+
+    font-size:14px;
+}
+
+.player-info::after{
+    content:"Xem thông tin →";
+
+    display:block;
+
+    margin-top:12px;
+
+    color:#008cff;
+
+    font-size:12px;
+
+    font-weight:bold;
+}
+
+
+/* =====================================================
+   PLAYER MODAL
+===================================================== */
+
+.player-modal{
+    position:fixed;
+
+    inset:0;
+
+    z-index:9998;
+
+    background:
+        rgba(0,20,40,.82);
+
+    backdrop-filter:blur(8px);
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+}
+
+.player-modal.active{
+    display:flex;
+}
+
+.player-modal-box{
+    width:100%;
+
+    max-width:850px;
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    background:white;
+
+    border-radius:25px;
+
+    box-shadow:
+        0 20px 70px rgba(0,80,150,.5);
+
+    position:relative;
+
+    animation:
+        modalShow .3s ease;
+}
+
+@keyframes modalShow{
+
+    from{
+        opacity:0;
+        transform:scale(.9)
+                   translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1)
+                   translateY(0);
+    }
+
+}
+
+.close-modal{
+    position:absolute;
+
+    top:15px;
+    right:15px;
+
+    width:42px;
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#008cff;
+
+    color:white;
+
+    font-size:25px;
+
+    cursor:pointer;
+
+    z-index:10;
+}
+
+.close-modal:hover{
+    background:#0068c9;
+}
+
+.modal-content{
+    display:grid;
+
+    grid-template-columns:
+        40% 60%;
+}
+
+.modal-photo{
+    min-height:430px;
+}
+
+.modal-photo img{
+    width:100%;
+    height:100%;
+
+    min-height:430px;
+
+    object-fit:cover;
+}
+
+.modal-info{
+    padding:45px;
+}
+
+.modal-number{
+    color:#008cff;
+
+    font-size:18px;
+
+    font-weight:bold;
+}
+
+.modal-info h2{
+    font-size:38px;
+
+    margin:8px 0 12px;
+}
+
+.modal-position{
+    display:inline-block;
+
+    padding:8px 15px;
+
+    border-radius:20px;
+
+    background:#dff6ff;
+
+    color:#0075c9;
+
+    font-weight:bold;
+
+    margin-bottom:25px;
+}
+
+.info-row{
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding:13px 0;
+
+    border-bottom:
+        1px solid #e5eef5;
+}
+
+.info-row span{
+    color:#597890;
+
+    text-align:right;
+}
+
+.modal-description{
+    margin-top:25px;
+
+    color:#315d7d;
+
+    line-height:1.8;
+}
+
+
+/* =====================================================
+   GALLERY
+===================================================== */
+
+.gallery-tools{
+    text-align:center;
+
+    margin-bottom:30px;
+}
+
+.upload-btn{
+    display:inline-block;
+
+    padding:15px 27px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #00b7ff,
+            #006eff
+        );
+
+    color:white;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    box-shadow:
+        0 0 20px rgba(0,170,255,.3);
+
+    transition:.3s;
+}
+
+.upload-btn:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 0 30px rgba(0,170,255,.5);
+}
+
+#photoInput{
+    display:none;
+}
+
+.gallery{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+.photo{
+    position:relative;
+
+    height:250px;
+
+    overflow:hidden;
+
+    border-radius:18px;
+
+    border:
+        2px solid rgba(0,140,255,.2);
+
+    background:white;
+
+    box-shadow:
+        0 8px 25px rgba(0,120,220,.15);
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    cursor:pointer;
+
+    transition:.4s;
+}
+
+.photo:hover img{
+    transform:scale(1.08);
+}
+
+
+/* =====================================================
+   DELETE
+===================================================== */
+
+.delete{
+    position:absolute;
+
+    top:10px;
+    right:10px;
+
+    width:36px;
+    height:36px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,30,30,.9);
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    z-index:5;
+
+    transition:.2s;
+}
+
+.delete:hover{
+    background:red;
+
+    transform:scale(1.1);
+}
+
+
+/* =====================================================
+   SOCIAL
+===================================================== */
+
+.socials{
+    max-width:1000px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:20px;
+}
+
+.social-card{
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:22px 20px;
+
+    background:
+        rgba(255,255,255,.95);
+
+    border:
+        1px solid rgba(0,140,255,.2);
+
+    border-radius:18px;
+
+    text-decoration:none;
+
+    color:#06345b;
+
+    box-shadow:
+        0 8px 25px rgba(0,120,220,.12);
+
+    transition:.3s;
+}
+
+.social-card:hover{
+    transform:translateY(-6px);
+
+    border-color:#00aaff;
+
+    box-shadow:
+        0 12px 30px rgba(0,150,255,.25);
+}
+
+.social-icon{
+    width:55px;
+    height:55px;
+
+    flex-shrink:0;
+
+    border-radius:15px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:white;
+
+    box-shadow:
+        0 5px 15px rgba(0,140,255,.25);
+
+    overflow:hidden;
+}
+
+.social-icon img{
+    width:38px;
+    height:38px;
+
+    object-fit:contain;
+}
+
+.social-card h3{
+    margin-bottom:5px;
+
+    font-size:18px;
+}
+
+.social-card p{
+    color:#66849e;
+
+    font-size:13px;
+}
+
+.social-card span{
+    margin-left:auto;
+
+    font-size:24px;
+
+    color:#008cff;
+
+    transition:.3s;
+}
+
+.social-card:hover span{
+    transform:translateX(5px);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    text-align:center;
+
+    padding:35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #087ed1,
+            #005bb5
+        );
+
+    color:#dff5ff;
+
+    border-top:
+        1px solid #52bfff;
+}
+
+footer p{
+    margin:6px;
+}
+
+footer strong{
+    color:white;
+}
+
+
+/* =====================================================
+   IMAGE VIEWER
+===================================================== */
+
+.image-viewer{
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:
+        rgba(0,20,40,.92);
+
+    z-index:9999;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    padding:30px;
+}
+
+.image-viewer img{
+    max-width:95%;
+    max-height:90%;
+
+    object-fit:contain;
+
+    border-radius:15px;
+
+    box-shadow:
+        0 0 50px rgba(0,170,255,.5);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1100px){
+
+    .players{
+        grid-template-columns:
+            repeat(4,1fr);
+    }
+
+}
+
+@media(max-width:950px){
+
+    .players{
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .socials{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .modal-content{
+        grid-template-columns:1fr;
+    }
+
+    .modal-photo{
+        min-height:300px;
+    }
+
+    .modal-photo img{
+        min-height:300px;
+        max-height:350px;
+    }
+
+}
+
+@media(max-width:650px){
+
+    nav ul{
+        display:none;
+    }
+
+    .logo-name{
+        font-size:18px;
+    }
+
+    .logo{
+        width:48px;
+        height:48px;
+    }
+
+    .hero{
+        padding-top:120px;
+    }
+
+    .big-logo{
+        width:150px;
+        height:150px;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .hero h2{
+        font-size:20px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .players{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+    .socials{
+        grid-template-columns:1fr;
+    }
+
+    .player-img{
+        height:190px;
+    }
+
+    .about-image{
+        height:280px;
+    }
+
+    .modal-info{
+        padding:30px 22px;
+    }
+
+    .modal-info h2{
+        font-size:30px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<nav>
+
+<div class="logo-box">
+
+<img
+src="https://cdn.phototourl.com/free/2026-08-24-603938c9-5d08-4eef-8f54-3ff36ba8abd0.jpg"
+class="logo"
+alt="Friqater FC Logo">
+
+<div class="logo-name">
+FRIQATER FC
+</div>
+
+</div>
+
+
+<ul>
+
+<li>
+<a href="#home">
+Trang chủ
+</a>
+</li>
+
+<li>
+<a href="#about">
+Giới thiệu
+</a>
+</li>
+
+<li>
+<a href="#players">
+Thành viên
+</a>
+</li>
+
+<li>
+<a href="#gallery">
+Khoảnh khắc
+</a>
+</li>
+
+<li>
+<a href="#contact">
+Liên hệ
+</a>
+</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<div
+class="hero"
+id="home">
+
+<div class="hero-content">
+
+
+<div class="big-logo">
+
+<img
+src="https://cdn.phototourl.com/free/2026-08-24-603938c9-5d08-4eef-8f54-3ff36ba8abd0.jpg"
+alt="Logo Friqater FC">
+
+</div>
+
+
+<h1>
+FRIQATER FC
+</h1>
+
+
+<h2>
+ONE TEAM • ONE DREAM ⚽
+</h2>
+
+
+<p>
+
+Chào mừng đến với ngôi nhà của
+<strong>Friqater FC</strong>.
+
+<br>
+
+Nơi giới thiệu các thành viên
+và lưu giữ những khoảnh khắc
+đáng nhớ của đội bóng.
+
+</p>
+
+
+<div class="buttons">
+
+<a
+href="#players"
+class="btn btn-blue">
+
+👥 Xem thành viên
+
+</a>
+
+
+<a
+href="#gallery"
+class="btn btn-outline">
+
+📸 Khoảnh khắc
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     GIỚI THIỆU
+===================================================== -->
+
+<section id="about">
+
+<div class="title">
+
+<h2>
+Về Friqater FC
+</h2>
+
+<p>
+Một đội bóng – Một tập thể – Một gia đình
+</p>
+
+</div>
+
+
+<div class="about">
+
+
+<div class="about-image"></div>
+
+
+<div class="about-text">
+
+<h3>
+Chúng tôi là Friqater FC 🐬
+</h3>
+
+<p>
+Friqater FC được tạo nên từ những
+người có chung niềm đam mê với bóng đá.
+</p>
+
+<p>
+Với chúng tôi, bóng đá không chỉ là
+thắng hay thua. Đó còn là tình bạn,
+sự đoàn kết và những kỷ niệm
+cùng nhau trên sân.
+</p>
+
+<p>
+Website này là nơi để giới thiệu
+những thành viên của Friqater FC
+và lưu giữ những khoảnh khắc
+đáng nhớ của cả đội.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     THÀNH VIÊN
+===================================================== -->
+
+<section id="players">
+
+<div class="title">
+
+<h2>
+Đội hình 👥
+</h2>
+
+<p>
+15 thành viên của Friqater FC
+</p>
+
+</div>
+
+
+<div
+class="players"
+id="playerList">
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     KHOẢNH KHẮC
+===================================================== -->
+
+<section id="gallery">
+
+<div class="title">
+
+<h2>
+Khoảnh khắc 📸
+</h2>
+
+<p>
+Những khoảnh khắc đáng nhớ của Friqater FC
+</p>
+</div>
+
+<div
+class="gallery"
+id="galleryList">
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     LIÊN HỆ
+===================================================== -->
+
+<section id="contact">
+
+<div class="title">
+
+<h2>
+Liên hệ & Mạng xã hội 📱
+</h2>
+
+<p>
+Theo dõi Friqater FC trên các nền tảng
+</p>
+
+</div>
+
+
+<div class="socials">
+
+
+<!-- FACEBOOK -->
+
+<a
+href="https://www.facebook.com/profile.php?id=61585526441409"
+target="_blank"
+rel="noopener noreferrer"
+class="social-card">
+
+<div class="social-icon">
+
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg"
+alt="Facebook">
+
+</div>
+
+<div>
+
+<h3>
+Facebook
+</h3>
+
+<p>
+Trang cá nhân chính thức của Friqater Fc
+</p>
+
+</div>
+
+<span>
+→
+</span>
+
+</a>
+
+
+
+<!-- INSTAGRAM -->
+
+<a
+href="https://www.instagram.com/friqater/"
+target="_blank"
+rel="noopener noreferrer"
+class="social-card">
+
+<div class="social-icon">
+
+<img
+src="https://cdn.simpleicons.org/instagram"
+alt="Instagram">
+
+</div>
+
+<div>
+
+<h3>
+Instagram
+</h3>
+
+<p>
+Theo dõi những hình ảnh và khoảnh khắc của Friqater Fc
+</p>
+
+</div>
+
+<span>
+→
+</span>
+
+</a>
+
+
+
+<!-- TIKTOK -->
+
+<a
+href="https://www.tiktok.com/@fcmanhnhatlichsu"
+target="_blank"
+rel="noopener noreferrer"
+class="social-card">
+
+<div class="social-icon">
+
+<img
+src="https://cdn.simpleicons.org/tiktok"
+alt="TikTok">
+
+</div>
+
+<div>
+
+<h3>
+TikTok
+</h3>
+
+<p>
+Nơi lưu giữ những chân sút của Friqater Fc
+</p>
+
+</div>
+
+<span>
+→
+</span>
+
+</a>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<p>
+<strong>12-09-2024</strong>
+</p>
+<strong>FRIQATER FC</strong>
+</p>
+
+<p>
+<strong>💙 ONE TEAM • ONE DREAM ⚽</strong>
+</p>
+
+</footer>
+
+
+
+<!-- =====================================================
+     PLAYER MODAL
+===================================================== -->
+
+<div
+class="player-modal"
+id="playerModal">
+
+<div class="player-modal-box">
+
+<button
+class="close-modal"
+id="closePlayerButton">
+
+×
+</button>
+
+
+<div class="modal-content">
+
+
+<div class="modal-photo">
+
+<img
+id="modalImage"
+src=""
+alt="">
+
+</div>
+
+
+<div class="modal-info">
+
+<div
+class="modal-number"
+id="modalNumber">
+
+</div>
+
+
+<h2
+id="modalName">
+
+</h2>
+
+
+<div
+class="modal-position"
+id="modalPosition">
+
+</div>
+
+
+<div class="info-row">
+
+<strong>
+Ngày sinh
+</strong>
+
+<span
+id="modalBirthday">
+
+</span>
+
+</div>
+
+
+<div class="info-row">
+
+<strong>
+Số áo
+</strong>
+
+<span
+id="modalPosition2">
+
+</span>
+
+</div>
+
+
+<div class="info-row">
+
+<strong>
+Số thứ tự
+</strong>
+
+<span
+id="modalNumber2">
+
+</span>
+
+</div>
+
+<div class="info-row">
+
+<strong>
+Trường
+</strong>
+
+<span
+id="modalHeight">
+
+</span>
+
+</div>
+
+
+<p
+class="modal-description"
+id="modalDescription">
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<script>
+
+/* =====================================================
+   18 CẦU THỦ
+   MỖI CẦU THỦ CÓ ẢNH RIÊNG
+===================================================== */
+
+const players = [
+
+{
+    number:"01",
+    name:"Tên cầu thủ 01",
+    position:"18",
+    birthday:"dd/mm/yyyy",
+    height:"THPT Hoàng Hoa Thám",
+    description:"Thông tin giới thiệu về cầu thủ 01.",
+    image:"https://cdn.phototourl.com/free/2026-08-24-603938c9-5d08-4eef-8f54-3ff36ba8abd0.jpg"
+},
+
+{
+    number:"02",
+    name:"Tên cầu thủ 02",
+    position:"15",
+    birthday:"dd/mm/yyyy",
+    height:"THPT Hoàng Hoa Thám",
+    description:"Thông tin giới thiệu về cầu thủ 02.",
+    image:"https://cdn.phototourl.com/free/2026-08-24-603938c9-5d08-4eef-8f54-3ff36ba8abd0.jpg"
+},
+
+{
+    number:"03",
+    name:"Tên cầu thủ 03",
+    position:"19",
+    birthday:"dd/mm/yyyy",
+    height:"THPT Hoàng Hoa Thám",
+    description:"Thông tin giới thiệu về cầu thủ 03.",
+    image:"https://cdn.phototourl.com/free/2026-08-24-603938c9-5d08-4eef-8f54-3ff36ba8abd0.jpg"
+},
+
+{
+    number:"04",
+    name:"Tên cầu thủ 04",
+    position:"26",
+    birthday:"dd/mm/yyyy",
+    height:"THPT Hoàng Hoa Thám",
+    description:"Thông tin giới thiệu về cầu thủ 04.",
+    image:"https://cdn.phototourl.com/free/2026-08-24-603938c9-5d08-4eef-8f54-3ff36ba8abd0.jpg"
+},
+
+{
+    number:"05",
+    name:"Tên cầu thủ 05",
+    position:"14",
+    birthday:"dd/mm/yyyy",
+    height:"THPT Hoàng Hoa Thám",
+    description:"Thông tin giới thiệu về cầu thủ 05.",
+    image:"https://cdn.phototourl.com/free/2026-08-24-603938c9-5d08-4eef-8f54-3ff36ba8abd0.jpg"
+},
+
+{
+    number:"06",
+    name:"Tên cầu thủ 06",
+    position:"17",
+    birthday:"dd/mm/yyyy",
+    height:"THPT Hoàng Hoa Thám",
+    description:"Thông tin giới thiệu về cầu thủ 06.",
+    image:"https://cdn.phototourl.com/free/2026-08-24-603938c9-5d08-4eef-8f54-3ff36ba8abd0.jpg"
+},
+
+{
+    number:"07",
+    name:"Tên cầu thủ 07",
+    position:"67",
+    birthday:"dd/mm/yyyy",
+    height:"THPT Phan Châu Trinh",
+    description:"Thông tin giới thiệu về cầu thủ 07.",
+    image:"https://cdn.phototourl.com/free/2026-08-24-603938c9-5d08-4eef-8f54-3ff36ba8abd0.jpg"
+},
+
+{
+    number:"08",
+    name:"Tên cầu thủ 08",
+    position:"7",
+    birthday:"dd/mm/yyyy",
+    height:"THPT Phan Châu Trinh",
+    description:"Thông tin giới thiệu về cầu thủ 08.",
+    image:"https://cdn.phototourl.com/free/2026-08-24-603938c9-5d08-4eef-8f54-3ff36ba8abd0.jpg"
+},
+
+{
+    number:"09",
+    name:"Tên cầu thủ 09",
+    position:"12",
+    birthday:"dd/mm/yyyy",
+    height:"THPT Phan Châu Trinh",
+    description:"Thông tin giới thiệu về cầu thủ 09.",
+    image:"https://cdn.phototourl.com/free/2026-08-24-603938c9-5d08-4eef-8f54-3ff36ba8abd0.jpg"
+},
+
+{
+    number:"10",
+    name:"Tên cầu thủ 10",
+    position:"22",
+    birthday:"dd/mm/yyyy",
+    height:"THPT Phan Châu Trinh",
+    description:"Thông tin giới thiệu về cầu thủ 10.",
+    image:"https://cdn.phototourl.com/free/2026-08-24-603938c9-5d08-4eef-8f54-3ff36ba8abd0.jpg"
+},
+
+{
+    number:"11",
+    name:"Tên cầu thủ 11",
+    position:"16",
+    birthday:"dd/mm/yyyy",
+    height:"THPT Phan Châu Trinh",
+    description:"Thông tin giới thiệu về cầu thủ 11.",
+    image:"https://cdn.phototourl.com/free/2026-08-24-603938c9-5d08-4eef-8f54-3ff36ba8abd0.jpg"
+},
+
+{
+    number:"12",
+    name:"Tên cầu thủ 12",
+    position:"10",
+    birthday:"dd/mm/yyyy",
+    height:"THPT Trần Phú",
+    description:"Thông tin giới thiệu về cầu thủ 12.",
+    image:"https://cdn.phototourl.com/free/2026-08-24-603938c9-5d08-4eef-8f54-3ff36ba8abd0.jpg"
+},
+
+{
+    number:"13",
+    name:"Tên cầu thủ 13",
+    position:"13",
+    birthday:"dd/mm/yyyy",
+    height:"THPT Tôn Thất Tùng",
+    description:"Thông tin giới thiệu về cầu thủ 13.",
+    image:"https://cdn.phototourl.com/free/2026-08-24-603938c9-5d08-4eef-8f54-3ff36ba8abd0.jpg"
+},
+
+{
+    number:"14",
+    name:"Tên cầu thủ 14",
+    position:"9",
+    birthday:"dd/mm/yyyy",
+    height:"THPT Tôn Thất Tùng",
+    description:"Thông tin giới thiệu về cầu thủ 14.",
+    image:"https://cdn.phototourl.com/free/2026-08-24-603938c9-5d08-4eef-8f54-3ff36ba8abd0.jpg"
+},
+
+{
+    number:"15",
+    name:"Tên cầu thủ 15",
+    position:"11",
+    birthday:"dd/mm/yyyy",
+    height:"THPT Ngô Quyền",
+    description:"Thông tin giới thiệu về cầu thủ 15.",
+    image:"https://cdn.phototourl.com/free/2026-08-24-603938c9-5d08-4eef-8f54-3ff36ba8abd0.jpg"
+},
+
+{
+    number:"16",
+    name:"Tên cầu thủ 16",
+    position:"4",
+    birthday:"dd/mm/yyyy",
+    height:"THPT Ngô Quyền",
+    description:"Thông tin giới thiệu về cầu thủ 16.",
+    image:"https://cdn.phototourl.com/free/2026-08-24-603938c9-5d08-4eef-8f54-3ff36ba8abd0.jpg"
+},
+
+{
+    number:"17",
+    name:"Tên cầu thủ 17",
+    position:"21",
+    birthday:"dd/mm/yyyy",
+    height:"THPT Chuyên Lê Quý Đôn",
+    description:"Thông tin giới thiệu về cầu thủ 17.",
+    image:"https://cdn.phototourl.com/free/2026-08-24-603938c9-5d08-4eef-8f54-3ff36ba8abd0.jpg"
+},
+
+];
+
+
+/* =====================================================
+   HIỂN THỊ CẦU THỦ
+===================================================== */
+
+const playerList =
+document.getElementById("playerList");
+
+
+players.forEach(function(player,index){
+
+    const card =
+    document.createElement("div");
+
+    card.className="player";
+
+    card.innerHTML=`
+
+        <img
+            class="player-img"
+            src="${player.image}"
+            alt="${player.name}"
+            loading="lazy"
+        >
+
+        <div class="player-info">
+
+            <div class="number">
+                #${player.number}
+            </div>
+
+            <h3>
+                ${player.name}
+            </h3>
+
+            <div class="position">
+                ${player.position}
+            </div>
+
+        </div>
+
+    `;
+
+
+    card.addEventListener(
+        "click",
+        function(){
+
+            openPlayer(index);
+
+        }
+    );
+
+
+    playerList.appendChild(card);
+
+});
+
+
+/* =====================================================
+   MỞ POPUP CẦU THỦ
+===================================================== */
+
+function openPlayer(index){
+
+    const player =
+    players[index];
+
+
+    document.getElementById(
+        "modalImage"
+    ).src=player.image;
+
+
+    document.getElementById(
+        "modalImage"
+    ).alt=player.name;
+
+
+    document.getElementById(
+        "modalNumber"
+    ).textContent=
+        "#" + player.number;
+
+
+    document.getElementById(
+        "modalName"
+    ).textContent=
+        player.name;
+
+
+    document.getElementById(
+        "modalPosition"
+    ).textContent=
+        player.position;
+
+
+    document.getElementById(
+        "modalBirthday"
+    ).textContent=
+        player.birthday;
+
+
+    document.getElementById(
+        "modalPosition2"
+    ).textContent=
+        player.position;
+
+
+    document.getElementById(
+        "modalNumber2"
+    ).textContent=
+        "#" + player.number;
+
+
+    document.getElementById(
+        "modalHeight"
+    ).textContent=
+        player.height;
+
+
+    document.getElementById(
+        "modalDescription"
+    ).textContent=
+        player.description;
+
+
+    document.getElementById(
+        "playerModal"
+    ).classList.add("active");
+
+
+    document.body.style.overflow=
+        "hidden";
+
+}
+
+
+/* =====================================================
+   ĐÓNG POPUP
+===================================================== */
+
+function closePlayer(){
+
+    document.getElementById(
+        "playerModal"
+    ).classList.remove("active");
+
+    document.body.style.overflow="";
+}
+
+
+document.getElementById(
+    "closePlayerButton"
+).addEventListener(
+    "click",
+    closePlayer
+);
+
+
+document.getElementById(
+    "playerModal"
+).addEventListener(
+    "click",
+    function(event){
+
+        if(event.target===this){
+
+            closePlayer();
+
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key==="Escape"){
+
+            closePlayer();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   KHOẢNH KHẮC
+=====================================================
+
+   CHỈ CẦN THAY LINK ẢNH Ở ĐÂY.
+   KHÔNG CÓ CHỨC NĂNG TẢI ẢNH TỪ MÁY TÍNH.
+*/
+
+const moments=[
+
+{
+image:"https://cdn.phototourl.com/free/2026-08-24-2169466b-ce0d-40b1-8bfa-8ee9883fee8d.jpg",
+},
+
+{
+image:"https://cdn.phototourl.com/free/2026-08-24-c1e957d5-84fb-4884-b139-c18cab327fbd.jpg",
+},
+
+{
+image:"https://cdn.phototourl.com/free/2026-08-24-9c43f390-5875-4673-808a-2f7f5c1408ff.jpg",
+},
+
+{
+image:"https://cdn.phototourl.com/free/2026-08-24-e608deb9-8fd0-44e3-86ce-a9815aa4fbe1.jpg",
+},
+
+{
+image:"https://cdn.phototourl.com/free/2026-08-24-06f31c64-35e4-40cf-b119-972435cb07fb.jpg",
+},
+
+{
+image:"https://cdn.phototourl.com/free/2026-08-24-dcea52c1-9478-4f0e-aab3-fdaac49aad7f.jpg",
+},
+
+{
+image:"https://cdn.phototourl.com/free/2026-08-24-12839bda-c428-4ef3-99e4-57e4800767ba.jpg",
+},
+
+{
+image:"https://cdn.phototourl.com/free/2026-08-24-12f6994c-4cb9-41dc-aa29-c275b3bdeb31.jpg",
+},
+
+{
+image:"https://cdn.phototourl.com/free/2026-08-24-56b237bc-9073-4ed2-896d-ffa61d727201.jpg",
+},
+
+{
+image:"https://cdn.phototourl.com/free/2026-08-24-50c3e314-2a13-4744-a9f6-c9a4e0035db3.jpg",
+},
+
+{
+image:"https://cdn.phototourl.com/free/2026-08-24-b4c0cd83-cbd8-4966-b015-9709501f8db9.jpg",
+},
+
+{
+image:"https://cdn.phototourl.com/free/2026-08-24-006ce9d9-c24c-41b7-b037-ed2e669d3c63.jpg",
+},
+
+{
+image:"https://cdn.phototourl.com/free/2026-08-24-34d21238-55f0-48f5-8da3-d7f0b917671b.jpg",
+},
+];
+
+
+const galleryList=
+document.getElementById(
+"galleryList"
+);
+
+
+moments.forEach(function(moment){
+
+const photo=
+document.createElement("div");
+
+photo.className="photo";
+
+
+photo.innerHTML=`
+
+<img
+src="${moment.image}"
+alt="${moment.title}">
+
+<div class="photo-title">
+${moment.title}
+</div>
+
+`;
+
+
+photo.onclick=function(){
+
+showImage(moment.image);
+
+};
+
+
+galleryList.appendChild(photo);
+
+});
+
+
+/* =====================================================
+   XEM ẢNH LỚN
+===================================================== */
+
+function showImage(url){
+
+const viewer=
+document.createElement("div");
+
+viewer.className=
+"image-viewer";
+
+
+const img=
+document.createElement("img");
+
+img.src=url;
+
+
+viewer.appendChild(img);
+
+
+viewer.onclick=function(){
+
+viewer.remove();
+
+};
+
+
+document.body.appendChild(viewer);
+
+}
+
+</script>
+
+
+</body>
+
+</html>
